@@ -9,7 +9,7 @@ volumes:
 services:
   app:
     ports:
-      - 3000:3000
+      - '8080:8080'
     build:
       context: .
       dockerfile: Dockerfile

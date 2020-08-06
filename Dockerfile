@@ -1,6 +1,6 @@
-FROM node:12
+FROM cypress/base:12
 
-ENV PORT 3000
+ENV PORT 8080
 
 # Create app directory
 RUN mkdir -p /usr/src/app

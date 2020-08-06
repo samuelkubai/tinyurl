@@ -5,15 +5,15 @@ describe("Shorten form", () => {
     cy.visit("/")
     cy.get("input").type("https://example.test").should("have.value", "https://example.test")
     cy.get("button").click()
-    cy.get(".results__link").contains("http://localhost:3000/ABCD")
+    cy.get(".results__link").contains("http://localhost:8080/ABCD")
   })
 
   it("redirects to the provided destination url", () => {
     cy.server()
-    cy.route("/api/retrieve?code=ABCD", { code: "ABCD", destination: "http://localhost:3000" }).as("retrieveUrl")
+    cy.route("/api/retrieve?code=ABCD", { code: "ABCD", destination: "http://localhost:8080" }).as("retrieveUrl")
     cy.visit("/ABCD")
     cy.wait("@retrieveUrl")
-    cy.url().should("eq", "http://localhost:3000/")
+    cy.url().should("eq", "http://localhost:8080/")
   })
 
   it("shows an error page when invalid code is provided", () => {

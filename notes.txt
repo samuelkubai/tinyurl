@@ -1,0 +1,17 @@
+The application infrastructure is built on:-
+- Postgres
+- Redis
+- NextJs
+
+I implemented to API endpoints, to do the following:-
+- /api/shorten  ->  To shorten provided urls and provide a shorten url
+- /api/retrieve ->  Return the destination url given a specific code
+
+I implemented a layer of cache using redis to ensure that subsequent url retrievals are much faster and we also don't
+overload the database with a flory of requests to the application.
+
+For our code generation, we are using the b62 algorithm and the current EPOCH timestamp to generate a code for the
+provided url.
+
+The whole application is packaged in a docker environment that houses the database, cache and the application server.
+We are using docker compose to orchestrate all the required services for the application.

@@ -34,7 +34,7 @@ form {
 }
 
 input {
-  width: 50%;
+  width: 75%;
   outline: none;
   border: none;
   border-radius: 8px;
@@ -63,6 +63,10 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+h3 {
+  font-size: 32px;
 }
 
 .results__link {

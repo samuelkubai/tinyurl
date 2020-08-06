@@ -21,10 +21,17 @@ const IndexPage = () => {
 
   return (
     <div className="container">
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={url} onChange={event => setUrl(event.target.value)} />
-        <button type="submit">Shorten</button>
-      </form>
+      <div>
+        <h2>Paste the URL to be shortened</h2>
+        <p>
+          ShortURL.at is a free tool to shorten a URL or reduce a link.
+          Use our URL Shortener to create a shortened link making it easy to remember.
+        </p>
+        <form onSubmit={handleSubmit}>
+          <input type="text" value={url} onChange={event => setUrl(event.target.value)} />
+          <button type="submit">Shorten</button>
+        </form>
+      </div>
 
       {
         shortenedUrl
