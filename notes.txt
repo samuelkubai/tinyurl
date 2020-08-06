@@ -15,3 +15,13 @@ provided url.
 
 The whole application is packaged in a docker environment that houses the database, cache and the application server.
 We are using docker compose to orchestrate all the required services for the application.
+
+On testing strategies I picked unit testing for the API handlers and integration tests for the frontend.
+For the frontend I felt an integration test would best suit the application with few components or moving
+parts and gives the confidence I need for that facet of the application.
+For the API I focused on testing the expected application logic, mocking out the database and cache layers
+and thus felt unit tests would give me all the confidence I need on the codebase.
+
+PS:
+The task took me ~5hrs I wanted to add cypress to the application I felt it was better suited to test the frontend
+end to end
