@@ -1,0 +1,44 @@
+version: '2.1'
+
+volumes:
+  tinyurl_db_data:
+    external: false
+  tinyurl_cache_data:
+    external: false
+
+services:
+  app:
+    ports:
+      - 3000:3000
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+      - /usr/src/app/.next
+  database:
+    image: postgres:11.4-alpine
+    expose:
+      - '5432'
+    ports:
+      - '5433:5432'
+    volumes:
+      - tinyurl_db_data:/var/lib/postgresql/data
+      - ./infra/migrations/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: tinyurl
+  cache:
+    image: redis:alpine
+    expose:
+      - '6379'
+    ports:
+      - '6379:6379'
+    volumes:
+      - tinyurl_cache_data:/var/lib/redis
+      - $PWD/infra/redis.conf:/usr/local/etc/redis/redis.conf
+    environment:
+      - REDIS_REPLICATION_MODE=master
+

@@ -1,0 +1,28 @@
+{
+  "name": "tinyurl",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "cy:run": "cypress run",
+    "test": "jest --runInBand --detectOpenHandles",
+    "test:watch": "jest --runInBand --detectOpenHandles --watch"
+  },
+  "dependencies": {
+    "next": "9.5.1",
+    "pg": "^8.3.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "redis": "^3.0.2"
+  },
+  "devDependencies": {
+    "babel-jest": "^26.2.2",
+    "cypress": "^4.12.1",
+    "isomorphic-unfetch": "^3.0.0",
+    "jest": "^26.2.2",
+    "next-server": "^9.0.5",
+    "test-listen": "^1.1.0"
+  }
+}
